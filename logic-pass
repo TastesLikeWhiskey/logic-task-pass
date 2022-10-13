@@ -1,1 +1,47 @@
+# Q1/Write a method that will remove any given character from a String?
 
+def character_remover(word, letter):
+    output = print(word.lower().replace(letter.lower(), ''))
+    return output
+
+
+
+# Q2. Write a program to find all prime numbers up to a given range of numbers?
+
+def prime_finder(first_number, last_number):
+    first_number = int(first_number)
+    last_number = int(last_number)
+    output_list = []
+    for number in range(first_number, last_number + 1):
+        if number > 1:
+            for division_number in range(2, number):
+                if (number % division_number) == 0:
+                    break
+            else:
+                output_list.append(number)
+    output = print(f'The prime numbers between {first_number} and {last_number} are: {output_list}')
+    return output
+
+
+
+
+# Q3. write a function that count how many the given character repeated in a given string?
+
+def letter_counter(text, character):
+    text = text.lower().strip()
+    character = character.lower().strip()
+    count_number = text.count(character)
+
+    if len(character) > 1:
+        print('You have selected more than one character, please choose only one.')
+    elif len(character) < 1:
+        print('You have not selected any character, please choose one.')
+    elif len(character) == 1:
+        if count_number == 1:
+            print(f'The letter "{character.upper()}" is repeated once.')
+        elif count_number == 2:
+            print(f'The letter "{character.upper()}" is repeated twice.')
+        elif count_number > 2:
+            print(f'The letter "{character.upper()}" is repeated {count_number} times.')
+        elif count_number < 1:
+            print(f'The character {character.upper()} is not in the text.')
